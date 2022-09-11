@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: cakeapi
+  name: cakeapi
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: cakeapi
+  template:
+    metadata:
+      labels:
+        app: cakeapi
+    spec:
+      serviceAccountName: eksrdsauthserviceaccount
+      containers:
+      - image: 081324788528.dkr.ecr.us-east-1.amazonaws.com/cakeapi:latest
+        name: cakeapi
+        env:
+        - name: AWS_DEFAULT_REGION
+          value: "us-east-1"
+        imagePullPolicy: Always
