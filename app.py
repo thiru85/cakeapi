@@ -33,4 +33,4 @@ table = dynamodbobj.Table("cakeType")
 
 response = table.scan()
 
-app.run(host='0.0.0.0', port='80')
+app.run(host='0.0.0.0', port='8080')
