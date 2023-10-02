@@ -29,8 +29,7 @@ def cake_api():
 warnings.filterwarnings('ignore', category=FutureWarning, module='botocore.client')
 
 dynamodbobj = boto3.resource("dynamodb", )
-table = dynamodbobj.Table("cakeType")
-
+table = dynamodbobj.Table(os.environ('TABLENAME')
 response = table.scan()
 
 app.run(host='0.0.0.0', port='80')

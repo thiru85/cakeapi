@@ -14,11 +14,13 @@ spec:
       labels:
         app: cakeapi
     spec:
-      serviceAccountName: eksrdsauthserviceaccount
+      serviceAccountName: ack-dynamodb-controller
       containers:
       - image: 081324788528.dkr.ecr.us-east-1.amazonaws.com/cakeapi:latest
         name: cakeapi
         env:
         - name: AWS_DEFAULT_REGION
           value: "us-east-1"
+        - name: TABLENAME
+          value: "thirudynamotable"
         imagePullPolicy: Always
